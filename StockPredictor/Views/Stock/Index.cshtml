@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Stock Prediction with Machine Learning";
+}
+
+<h2>Stock Prediction</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+<form asp-action="Predict" method="post">
+    <div class="form-group">
+        <label for="selectedTicker">Select a Company</label>
+        <select name="selectedTicker" id="selectedTicker" class="form-control">
+            <option value="">Select a Company</option>
+            @foreach (var company in ViewBag.Companies)
+            {
+                <option value="@company.Ticker">@company.DisplayName</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Get Prediction</button>
+</form>
