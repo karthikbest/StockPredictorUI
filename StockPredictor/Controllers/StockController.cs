@@ -11,14 +11,7 @@ namespace StockPredictionApp.Controllers
 {
     public class StockController : Controller
     {
-        //private readonly string apiBaseUrl = "http://192.168.2.51:5001/"; 
-
-        private readonly string apiBaseUrl;
-        public StockController()
-        {
-            // Use environment variable or default fallback
-            apiBaseUrl = Environment.GetEnvironmentVariable("FLASK_API_URL") ?? "http://localhost:5001/";
-        }
+        private readonly string apiBaseUrl = "https://stockml-api.onrender.com/"; 
 
         private readonly string sp500FilePath = "App_Data/sp500.json"; // Path to the S&P 500 tickers JSON file
 
