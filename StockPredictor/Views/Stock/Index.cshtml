@@ -1,8 +1,8 @@
 ﻿@{
-    ViewBag.Title = "Stock Prediction with Machine Learning";
+    ViewBag.Title = "Stock Price Prediction";
 }
 
-<h2>Stock Prediction</h2>
+<h2>Stock Price Prediction Through Machine Learning</h2>
 
 @if (ViewBag.Error != null)
 {
@@ -11,9 +11,9 @@
 
 <form asp-action="Predict" method="post">
     <div class="form-group">
-        <label for="selectedTicker">Select a Company</label>
+        <label for="selectedTicker">Select a Company (S&P500 Companies)</label>
         <select name="selectedTicker" id="selectedTicker" class="form-control">
-            <option value="">Select a Company</option>
+            <option value="">Select a Company from the list</option>
             @foreach (var company in ViewBag.Companies)
             {
                 <option value="@company.Ticker">@company.DisplayName</option>
