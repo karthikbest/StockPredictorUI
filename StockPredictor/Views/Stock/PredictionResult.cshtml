@@ -1,11 +1,11 @@
 ﻿@model StockPredictor.Models.PredictionResponse
 
 
-<h2>Stock Prediction for @Model.CompanyName</h2>
+<h2>Stock Prediction for @Model.CompanyName stock</h2>
 
-<p><strong>Last Closing Price:</strong> @Model.LastClosingPrice.Date - @Model.LastClosingPrice.Price.ToString("C2")</p>
+<p><strong>Current Price:</strong> @Model.LastClosingPrice.Date - @Model.LastClosingPrice.Price.ToString("C2")</p>
 
-<h3>Predicted Prices for the next 5 days, from the last closing date</h3>
+<h3>Predicted Prices for the next 5 days</h3>
 <ul>
     @foreach (var prediction in Model.PredictedPrices)
     {
