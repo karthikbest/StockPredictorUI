@@ -9,7 +9,7 @@
     <div class="alert alert-danger">@ViewBag.Error</div>
 }
 
-<form asp-action="Predict" method="post">
+<form asp-action="Predict" method="post" id="predictionForm">
     <div class="form-group">
         <label for="selectedTicker">Select a Company (S&P500 Companies)</label>
         <select name="selectedTicker" id="selectedTicker" class="form-control">
@@ -22,3 +22,27 @@
     </div>
     <button type="submit" class="btn btn-primary mt-3">Get Prediction</button>
 </form>
+
+<!-- Bootstrap Toast -->
+<div class="toast-container position-fixed top-50 start-50 translate-middle p-3">
+    <div id="predictionToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+        <div class="toast-header">
+            <strong class="me-auto">Loading...</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Hi. My machine learning models are hosted in a Free Server. Hence, loading time could be a bit high sometimes :(. Thank you for your patience.
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', function (e) {
+            // Show the toast
+            var toastElement = document.getElementById('predictionToast');
+            var toast = new bootstrap.Toast(toastElement);
+            toast.show();
+        });
+    </script>
+}
